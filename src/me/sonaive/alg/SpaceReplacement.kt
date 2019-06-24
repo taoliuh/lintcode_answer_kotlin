@@ -33,18 +33,18 @@ class SpaceReplacement {
                 ++space
             }
         }
-        var newLength = len + space * 2
-        val resizeLength = newLength
-        for (i in len downTo 0) {
+        val newLength = len + space * 2
+        var endIndex = newLength - 1
+        for (i in len - 1 downTo 0) {
             if (str[i] != ' ') {
-                str[newLength--] = str[i]
+                str[endIndex--] = str[i]
             } else {
-                str[newLength--] = '0'
-                str[newLength--] = '2'
-                str[newLength--] = '%'
+                str[endIndex--] = '0'
+                str[endIndex--] = '2'
+                str[endIndex--] = '%'
             }
         }
-        return resizeLength
+        return newLength
     }
 }
 
